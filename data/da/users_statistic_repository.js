@@ -22,6 +22,13 @@ class UsersStatisticRepository {
       [userId, date, page_views, clicks]
     );
   }
+
+  getStatisticById(id, date_from = "2019-10-01", date_to = "2019-10-31") {
+    return this.da.all(
+      `SELECT * FROM users_statistic WHERE userId = ? AND date BETWEEN ? AND ?`,
+      [id, date_from, date_to]
+    );
+  }
 }
 
 module.exports = UsersStatisticRepository;

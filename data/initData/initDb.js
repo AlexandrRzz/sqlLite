@@ -48,8 +48,8 @@ da.checkTableExists("users_statistic").then((result) => {
         function (err, data) {
           if (!err) {
             const usersStatistic = JSON.parse(data);
-            usersStatistic.forEach(({ userId, date, page_views, clicks }) => {
-              usersStatisticsRepo.create(userId, date, page_views, clicks);
+            usersStatistic.forEach(({ user_id, date, page_views, clicks }) => {
+              usersStatisticsRepo.create(user_id, date, page_views, clicks);
             });
           } else {
             console.log(err);
